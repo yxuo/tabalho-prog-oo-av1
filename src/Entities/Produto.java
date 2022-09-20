@@ -1,10 +1,13 @@
 package Entities;
 
+import java.util.*;
+
 public class Produto {
     public Integer codigo;
     public String nome;
     public float preco;
     public Integer qtdestoque;
+    List<Item> items;
 
     public Integer getCodigo() {
         return codigo;
@@ -37,6 +40,12 @@ public class Produto {
     public void setQtdEstoque(Integer qtdestoque) {
         this.qtdestoque = qtdestoque;
     }
+    public List<Item> getItems() {
+        return items;
+    }
+    public void setItems(List<Item> item) {
+        this.items = item;
+    }
 
     // Construtor
     public Produto(Integer codigo, String nome, float preco, Integer qtdestoque) {
@@ -49,10 +58,12 @@ public class Produto {
     // Construtor com sobrecarga
     public Produto() {
     }
-    public Integer adicionaQtdestoque(Integer qtdestoque){
+
+    //Funçao para atualizar a lista
+    public Integer AdicionaQtdEstoque(Integer qtdestoque){
         return qtdestoque;
     }
-    public Integer diminuiQtdestoque(Integer qtdestoque){
+    public Integer DiminuiQtdEstoque(Integer qtdestoque){
         return qtdestoque;
     }
    

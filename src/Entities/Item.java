@@ -3,6 +3,7 @@ package Entities;
 public class Item {
     public Integer qtd;
     public Integer sequancial;
+    public Produto produto;
 
     public Integer getQtd() {
         return qtd;
@@ -21,9 +22,11 @@ public class Item {
     }
 
     // Construtor
-    public Item(Integer qtd, Integer sequencial) {
+    public Item(Integer qtd, Integer sequencial,Produto produto) {
         this.qtd = qtd;
         this.sequancial = sequencial;
+        this.produto=produto;
+        
     }
 
     // Construtor com sobrecarga

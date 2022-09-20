@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.*;
+
 import Enums.Situacao;
 
 public class Pedido {
@@ -7,6 +9,9 @@ public class Pedido {
     public String data;
     public Situacao situacao;
     public float valor;
+    public Cliente cliente;
+    private List<Item> item;
+    
 
     public String getData() {
         return data;
@@ -39,13 +44,19 @@ public class Pedido {
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
-
+    public List<Item> getItems() {
+        return item;
+    }
+    public void setItems(List<Item> item) {
+        this.item = item;
+    }
     // Construtor
-    public Pedido(Integer numero, String data, Situacao situacao, float valor) {
+    public Pedido(Integer numero, String data, Situacao situacao, float valor,Cliente cliente) {
         this.numero = numero;
         this.data = data;
         this.situacao = situacao;
         this.valor = valor;
+        this.cliente=cliente;
     }
 
     // Construtor com sobrecarga
