@@ -56,6 +56,7 @@ public class Produto {
         return qtdestoque;
     }
     public void teste(){
-        
+
     }
+    public void teste2(){}
 }
