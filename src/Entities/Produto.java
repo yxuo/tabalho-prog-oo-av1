@@ -49,5 +49,10 @@ public class Produto {
     // Construtor com sobrecarga
     public Produto() {
     }
-
+    public Integer adicionaQtdestoque(Integer qtdestoque){
+        return qtdestoque;
+    }
+    public Integer diminuiQtdestoque(Integer qtdestoque){
+        return qtdestoque;
+    }
 }
