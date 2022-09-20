@@ -55,8 +55,5 @@ public class Produto {
     public Integer diminuiQtdestoque(Integer qtdestoque){
         return qtdestoque;
     }
-    public void teste(){
-
-    }
-    public void teste2(){}
+   
 }
