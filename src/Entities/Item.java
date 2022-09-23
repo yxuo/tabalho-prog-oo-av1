@@ -2,7 +2,7 @@ package Entities;
 
 public class Item {
     public Integer qtd;
-    public Integer sequancial;
+    public Integer sequencial;
     public Produto produto;
 
     public Integer getQtd() {
@@ -14,17 +14,17 @@ public class Item {
     }
 
     public Integer getSequencial() {
-        return sequancial;
+        return sequencial;
     }
 
     public void setSequencial(Integer sequencial) {
-        this.sequancial = sequencial;
+        this.sequencial = sequencial;
     }
 
     // Construtor
     public Item(Integer qtd, Integer sequencial,Produto produto) {
         this.qtd = qtd;
-        this.sequancial = sequencial;
+        this.sequencial = sequencial;
         this.produto=produto;
         
     }
@@ -35,6 +35,6 @@ public class Item {
 
     // Método toString
     public String toString() {
-        return "Item [qtd=" + qtd + ", sequencial=" + sequancial + ", produto=" + produto + "]";
+        return "Item [qtd=" + qtd + ", sequencial=" + sequencial + ", produto=" + produto + "]";
     }
 }
