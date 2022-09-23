@@ -33,6 +33,7 @@ public class Produto {
         this.nome = nome;
     }
 
+    // Estoque
     public Integer getQtdEstoque() {
         return qtdestoque;
     }
@@ -41,12 +42,12 @@ public class Produto {
         this.qtdestoque = qtdestoque;
     }
 
-    public List<Item> getItems() {
-        return itens;
+    public void adicionaQtdEstoque() {
+        this.qtdestoque += qtdestoque;
     }
 
-    public void setItems(List<Item> item) {
-        this.itens = item;
+    public void diminuiQtdEstoque() {
+        this.qtdestoque -= qtdestoque;
     }
 
     // Construtor
@@ -83,5 +84,7 @@ public class Produto {
         }
         return strItens;
     }
+
+
 
 }
