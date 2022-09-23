@@ -32,4 +32,9 @@ public class Item {
     // Construtor com sobrecarga
     public Item() {
     }
+
+    // Método toString
+    public String toString() {
+        return "Item [qtd=" + qtd + ", sequencial=" + sequancial + ", produto=" + produto + "]";
+    }
 }

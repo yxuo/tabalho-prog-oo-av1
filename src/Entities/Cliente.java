@@ -48,4 +48,9 @@ public class Cliente {
     public Cliente() {
     }
 
+    // Método toString
+    public String toString() {
+        return "Cliente [cpf=" + cpf + ", endereco=" + endereco + ", nome=" + nome + "]";
+    }
+
 }

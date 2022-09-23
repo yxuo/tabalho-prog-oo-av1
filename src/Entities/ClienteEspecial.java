@@ -23,4 +23,9 @@ public class ClienteEspecial extends Cliente {
     // Construtor com sobrecarga
     public ClienteEspecial() {
     }
+
+    // Método toString
+    public String toString() {
+        return "ClienteEspecial [area=" + area + ", cpf=" + cpf + ", endereco=" + endereco + ", nome=" + nome + "]";
+    }
 }

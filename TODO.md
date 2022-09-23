@@ -1,9 +1,9 @@
 
-- [ ] 1. Cada classe do Diagrama de Classe, deverá possuir os atributos e métodos 
+- [x] 1. Cada classe do Diagrama de Classe, deverá possuir os atributos e métodos 
 implementados conforme o princípio do Encapsulamento, bem como, novos atributos 
 deverão ser inseridos para refletir suas associações; 
 
-- [ ] 2. Implemente dois métodos construtores sobrecarregados, métodos get/set e toString 
+- [x] 2. Implemente dois métodos construtores sobrecarregados, métodos get/set e toString 
 em cada Classe; 
 
 - [ ] 3. Na classe Produto implemente os métodos adicionaQtdestoque(...) e 

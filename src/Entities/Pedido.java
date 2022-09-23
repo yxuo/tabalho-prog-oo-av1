@@ -63,4 +63,18 @@ public class Pedido {
     public Pedido() {
     }
 
+    // Método toString
+    public String toString() {
+        return "Pedido [data=" + data + ", numero=" + numero + ", situacao=" + situacao + ", valor=" + valor + "]";
+    }
+
+    // toString todos os itens do pedido
+    public String toStringItens() {
+        String itens = "";
+        for (Item item : item) {
+            itens += item.toString() + " ";
+        }
+        return itens;
+    }
+
 }

@@ -7,7 +7,7 @@ public class Produto {
     public String nome;
     public float preco;
     public Integer qtdestoque;
-    List<Item> items;
+    List<Item> itens;
 
     public Integer getCodigo() {
         return codigo;
@@ -40,11 +40,13 @@ public class Produto {
     public void setQtdEstoque(Integer qtdestoque) {
         this.qtdestoque = qtdestoque;
     }
+
     public List<Item> getItems() {
-        return items;
+        return itens;
     }
+
     public void setItems(List<Item> item) {
-        this.items = item;
+        this.itens = item;
     }
 
     // Construtor
@@ -59,12 +61,27 @@ public class Produto {
     public Produto() {
     }
 
-    //Funçao para atualizar a lista
-    public Integer AdicionaQtdEstoque(Integer qtdestoque){
+    // Funçao para atualizar a lista
+    public Integer AdicionaQtdEstoque(Integer qtdestoque) {
         return qtdestoque;
     }
-    public Integer DiminuiQtdEstoque(Integer qtdestoque){
+
+    public Integer DiminuiQtdEstoque(Integer qtdestoque) {
         return qtdestoque;
     }
-   
+
+    // Método toString
+    public String toString() {
+        return "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", estoque=" + qtdestoque;
+    }
+
+    // toString para a lista de itens
+    public String toStringItens() {
+        String strItens = "";
+        for (Item item : itens) {
+            strItens += item.toString() + " ";
+        }
+        return strItens;
+    }
+
 }
