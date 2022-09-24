@@ -6,26 +6,23 @@ deverão ser inseridos para refletir suas associações;
 - [x] 2. Implemente dois métodos construtores sobrecarregados, métodos get/set e toString 
 em cada Classe; 
 
-- [ ] 3. Na classe Produto implemente os métodos adicionaQtdestoque(...) e 
-diminuiQtdestoque(...), com os devidos parâmetro(s), para que aumentem ou diminuam
-as quantidade em estoque, conforme sejam criados ou excluídos Itens de Pedidos com 
-esses Produtos; 
+- [x] 3. Na classe Produto implemente os métodos adicionaQtdestoque(...) e diminuiQtdestoque(...), com os devidos parâmetro(s), para que aumentem ou diminuam as quantidade em estoque, conforme sejam criados ou excluídos Itens de Pedidos com esses Produtos; 
+> Pela lógica, você adiciona e remove item atraés do Pedido e não do Item.  
+> Daí fica a pergunta: você vai adicionar um item diretamente no pedido? Pela lógica Orientada a Objetos, não.  
+> Então você vai adicionar um item no pedido através do produto.
+> O pedido terá um método para adicionar ou remover item, que atualizará o estoque do produto.
 
-- [ ] 4. Na classe Pedido implemente o atributo private ArrayList<Item> listaitem, sem itens 
-quando o Pedido for instanciado; 
+- [x] 4. Na classe Pedido implemente o atributo private ArrayList<Item> listaitem, sem itens quando o Pedido for instanciado;
 
-- [ ] 5. Implemente uma enumeração, que reflita a situação do Pedido: ANALISE, 
-REPROVADO, APROVADO, ATENDIDO; 
+- [x] 5. Implemente uma enumeração, que reflita a situação do Pedido: ANALISE, REPROVADO, APROVADO, ATENDIDO; 
 
-- [ ] 6. Toda vez que um Pedido for instanciado, seu valor deverá ser zero (0.0). Conforme 
-sejam criados objetos da classe Item, para esse Pedido, o valor do Pedido deverá ser 
-somado com a quantidade multiplicado pelo preço do Produto; 
+- [x] 6. Toda vez que um Pedido for instanciado, seu valor deverá ser zero (0.0). Conforme sejam criados objetos da classe Item, para esse Pedido, o valor do Pedido deverá ser somado com a quantidade multiplicado pelo preço do Produto; 
 
-- [ ] 7. Implemente a classe ClienteEspecial, filha da classe Cliente, com atributo area; 
+- [x] 7. Implemente a classe ClienteEspecial, filha da classe Cliente, com atributo area; 
 
 - [ ] 8. Implemente a classe Programa, tal que:
 
-  - [ ] a. Implemente dois objetos da classe Cliente, com dados inseridos pelo teclado (usar objeto da classe Scanner). Imprima esses objetos no console; 
+  - [x] a. Implemente dois objetos da classe Cliente, com dados inseridos pelo teclado (usar objeto da classe Scanner). Imprima esses objetos no console; 
 
   - [ ] b. Implemente três objetos da classe Produto, com dados inseridos pelo teclado e imprima esses objetos no console; 
   

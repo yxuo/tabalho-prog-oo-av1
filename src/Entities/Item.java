@@ -21,6 +21,14 @@ public class Item {
         this.sequencial = sequencial;
     }
 
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
     // Construtor
     public Item(Integer qtd, Integer sequencial,Produto produto) {
         this.qtd = qtd;

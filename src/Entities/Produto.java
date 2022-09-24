@@ -42,11 +42,11 @@ public class Produto {
         this.qtdestoque = qtdestoque;
     }
 
-    public void adicionaQtdEstoque() {
+    public void adicionaQtdEstoque(Integer qtdestoque) {
         this.qtdestoque += qtdestoque;
     }
 
-    public void diminuiQtdEstoque() {
+    public void diminuiQtdEstoque(Integer qtdestoque) {
         this.qtdestoque -= qtdestoque;
     }
 
@@ -62,15 +62,6 @@ public class Produto {
     public Produto() {
     }
 
-    // Funçao para atualizar a lista
-    public Integer AdicionaQtdEstoque(Integer qtdestoque) {
-        return qtdestoque;
-    }
-
-    public Integer DiminuiQtdEstoque(Integer qtdestoque) {
-        return qtdestoque;
-    }
-
     // Método toString
     public String toString() {
         return "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", estoque=" + qtdestoque;
@@ -84,7 +75,4 @@ public class Produto {
         }
         return strItens;
     }
-
-
-
 }

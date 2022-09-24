@@ -49,14 +49,21 @@ public class Pedido {
     }
     public void setItems(List<Item> item) {
         this.item = item;
+        // Atualizar o valor do pedido
+        float valor = 0;
+        for (Item i : item) {
+            valor += i.getProduto().getPreco() * i.getQtd();
+        }
+        this.valor = valor;
     }
     // Construtor
-    public Pedido(Integer numero, String data, Situacao situacao, float valor,Cliente cliente) {
+    public Pedido(Integer numero, String data, Situacao situacao, Cliente cliente) {
         this.numero = numero;
         this.data = data;
         this.situacao = situacao;
-        this.valor = valor;
+        this.valor = 0;
         this.cliente=cliente;
+        this.item = new ArrayList<Item>();
     }
 
     // Construtor com sobrecarga
