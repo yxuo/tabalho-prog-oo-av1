@@ -7,13 +7,26 @@ public class Programa {
     public static void main(String[] args) {
         // Dois objetos da classe Cliente
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i<2; i++) {
-            System.out.println("Digite o nome, cpf e endereço do cliente " + (i+1));
+        for (int i = 1; i<=2; i++) {
+            System.out.println("Digite o nome "+i+" :");
             String nome = sc.nextLine();
+            System.out.println("Digite o cpf "+i+" :");
             Integer cpf = sc.nextInt();
+            System.out.println("Digite o telefone "+i+" :");
             String telefone = sc.nextLine();
             Cliente cliente = new Cliente(cpf, nome, telefone);
             System.out.println(cliente.toString());
+        }
+        for (int i=1;i<=3;i++){
+            System.out.println("Digite o codigo "+i+" :");
+            int codigo = Integer.parseInt(sc.nextLine());
+            System.out.println("Digite o nome "+i+" :");
+            String nome = sc.nextLine();
+            System.out.println("Digite o preco "+i+" :");
+            float preco = Float.parseFloat(sc.nextLine());
+            System.out.println("Digite o preco "+i+" :");
+            Integer qtdestoque = Integer.parseInt(sc.nextLine());
+            Produto produto=new Produto(codigo,nome,preco,qtdestoque);
         }
         sc.close();
 
