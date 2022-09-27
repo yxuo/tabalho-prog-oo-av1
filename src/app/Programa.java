@@ -34,7 +34,7 @@ public class Programa {
             System.out.println("Cliente " + i + " " + clientes.get(i - 1));
         }
 
-        // 8.c Três objetos da classe Pedido
+        // 8.c Dois objetos da classe Pedido
         // Lista de Pedido
         List<Pedido> pedidos = new ArrayList<Pedido>();
         for (int i = 1; i <= 2; i++) {
