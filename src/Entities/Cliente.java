@@ -6,7 +6,7 @@ public class Cliente {
     public Integer cpf;
     public String nome;
     public String endereco;
-    List<Pedido> pedido;
+    // List<Pedido> pedido;
 
     public Integer getCpf() {
         return cpf;
@@ -31,14 +31,14 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    public List<Pedido> getPedido() {
-        return pedido;
-    }
-    public void setPedido(List<Pedido> pedido) {
-        this.pedido = pedido;
-    }
+    // public List<Pedido> getPedido() {
+    //     return pedido;
+    // }
+    // public void setPedido(List<Pedido> pedido) {
+    //     this.pedido = pedido;
+    // }
     // Construtor
-    public Cliente(Integer cpf, String endereco, String nome) {
+    public Cliente(Integer cpf, String nome, String endereco) {
         this.cpf = cpf;
         this.nome = nome;
         this.endereco = endereco;
@@ -50,7 +50,7 @@ public class Cliente {
 
     // Método toString
     public String toString() {
-        return "Cliente [cpf=" + cpf + ", endereco=" + endereco + ", nome=" + nome + "]";
+        return "cpf=" + cpf + ", endereco=" + endereco + ", nome=" + nome;
     }
 
 }

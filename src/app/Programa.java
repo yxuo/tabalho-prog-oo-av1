@@ -1,34 +1,92 @@
 package app;
+
 import Entities.*;
+import Enums.Situacao;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import java.util.Scanner;
 
+import javax.swing.text.DateFormatter;
+
 public class Programa {
     public static void main(String[] args) {
-        // Dois objetos da classe Cliente
+        // 8.a Dois objetos da classe Cliente
         Scanner sc = new Scanner(System.in);
-        for (int i = 1; i<=2; i++) {
-            System.out.println("Digite o nome do cliente"+i+" :");
-            String nome = sc.nextLine();
-            System.out.println("Digite o cpf do cliente"+i+" :");
-            Integer cpf = sc.nextInt();
-            System.out.println("Digite o enderço do cliente"+i+" :");
-            String endereco = sc.nextLine();
-            Cliente cliente = new Cliente(cpf, nome, endereco);
-            System.out.println(cliente.toString());
+        // Lista de Cliente
+        List<Cliente> clientes = new ArrayList<Cliente>();
+        // Cliente cliente;
+        for (int i = 1; i <= 2; i++) {
+            // System.out.println("Digite o cpf " + i + " :");
+            // Integer cpf = sc.nextInt();
+            // sc.nextLine(); // É o mesmo que parseInt+nextLine
+            // System.out.println("Digite o nome " + i + " :");
+            // String nome = sc.nextLine();
+            // System.out.println("Digite o endereço " + i + " :");
+            // String endereco = sc.nextLine();
+            // clientes.add(new Cliente(cpf, nome, endereco));
+            // Print do cliente
+            // System.out.println(clientes.get(i-1));
+            clientes.add(new Cliente(123, "nome"+i, "endereco"+1));
         }
-        for (int i=1;i<=3;i++){
-            System.out.println("Digite o codigo "+i+" :");
-            int codigo = Integer.parseInt(sc.nextLine());
-            
-            System.out.println("Digite o nome "+i+" :");
-            String nome = sc.nextLine();
-            System.out.println("Digite o preco "+i+" :");
-            float preco = Float.parseFloat(sc.nextLine());
-            System.out.println("Digite o preco "+i+" :");
-            Integer qtdestoque = Integer.parseInt(sc.nextLine());
-            Produto produto=new Produto(codigo,nome,preco,qtdestoque);
+        for (int i = 1; i <= clientes.size(); i++) {
+            System.out.println("Cliente " + i + " " + clientes.get(i-1));
         }
+
+        // 8.c Três objetos da classe Pedido
+        // Lista de Pedido
+        List<Pedido> pedidos = new ArrayList<Pedido>();
+        for (int i = 1; i <= 2; i++) {
+            // System.out.println("Pedido " + i + " :");
+            // System.out.println("Digite o número do pedido:");
+            // Integer numero = sc.nextInt();
+            // sc.nextLine(); // É o mesmo que parseInt+nextLine
+
+            // Data now para String formatado
+            Date now = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String data = formatter.format(now);
+
+            // Situação
+            Situacao situacao = Situacao.Analise;
+
+            // Pedido
+            // pedidos.add(new Pedido(numero, data, situacao, clientes.get(i-1)));
+            // Pedido automatico
+            pedidos.add(new Pedido(i, data, situacao, clientes.get(i-1)));
+        }
+        for (int i = 1; i <= pedidos.size(); i++) {
+            System.out.println("Pedido " + i + " " + pedidos.get(i-1));
+        }
+
+        // 8.d Dois objetos da classe Item
+        // Lista de Item
+        List<Item> itens = new ArrayList<Item>();
+        for (int i = 1; i <= pedidos.size(); i++) {
+            System.out.println("Item " + i + " :");
+            System.out.println("Digite o número do Item:");
+            Integer numero = sc.nextInt();
+            sc.nextLine(); // É o mesmo que parseInt+nextLine
+
+            // Data now para String formatado
+            Date now = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String data = formatter.format(now);
+
+            // Situação
+            Situacao situacao = Situacao.Analise;
+
+            // Item
+
+            // Print do Item
+            // System.out.println("Item " + i + ": " + itens.get(i-1));
+        }
+        for (int i = 1; i <= itens.size(); i++) {
+            System.out.println("Item " + i + " " + itens.get(i-1));
+        }
+        
+
         sc.close();
 
     }

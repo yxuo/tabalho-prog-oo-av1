@@ -72,7 +72,7 @@ public class Pedido {
 
     // Método toString
     public String toString() {
-        return "Pedido [data=" + data + ", numero=" + numero + ", situacao=" + situacao + ", valor=" + valor + "]";
+        return "data=" + data + ", numero=" + numero + ", situacao=" + situacao + ", valor=" + valor + ", cliente={" + cliente+"}";
     }
 
     // toString todos os itens do pedido
