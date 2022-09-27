@@ -1,13 +1,11 @@
 package Entities;
 
-import java.util.*;
 
 public class Produto {
     public Integer codigo;
     public String nome;
     public float preco;
     public Integer qtdestoque;
-    List<Item> itens;
 
     public Integer getCodigo() {
         return codigo;
@@ -65,14 +63,5 @@ public class Produto {
     // Método toString
     public String toString() {
         return "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", estoque=" + qtdestoque;
-    }
-
-    // toString para a lista de itens
-    public String toStringItens() {
-        String strItens = "";
-        for (Item item : itens) {
-            strItens += item.toString() + " ";
-        }
-        return strItens;
     }
 }
