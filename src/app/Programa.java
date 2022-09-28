@@ -129,14 +129,14 @@ public class Programa {
                     System.out.print("Produto escolhido: ");
                     produtoSelecionado = sc.nextInt();
                     sc.nextLine();
-
+                    // exit java
                     // Erros
                     if (produtoSelecionado < 1 || produtoSelecionado > produtos.size()) {
                         System.out.println("Produto inválido!");
                     } else
-                        break;
+                    break;
                 }
-
+                
                 // Quantidade
                 while (true) {
                     System.out.print("Digite a quantidade do Item:");
@@ -157,6 +157,7 @@ public class Programa {
                         // atualizar a quantidade em estoque do produto via pedido
                         pedidos.get(pedido - 1).setItens(itens);
                         System.out.println("Novo estoque: " + produtos.get(item - 1).getQtdEstoque());
+                        System.out.println("");
                         break;
                     }
                 }

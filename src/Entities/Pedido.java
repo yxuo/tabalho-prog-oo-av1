@@ -57,20 +57,24 @@ public class Pedido {
         this.valor = valor;
         
         System.out.println("Set itens 2");
-        // Vou guardar para comparar, pois eu vou substituir a lista
-        this.itens = itens; // Substituindo a lista
         
         System.out.println("Set itens 3");
         // Atualizar estoque
-        /*
-         * Se o item é novo (adicionado), diminui o estoque
-         * Se o item é antigo (removido), aumenta o estoque
-         */
-        for (int i = 0; i < itens.size(); i++) {
-            Integer qtdItem = itens.get(i).getQtd();
-            // Integer qtdEstoque = itens.get(i).getProduto().getQtdEstoque();
-            itens.get(i).getProduto().diminuiQtdEstoque(qtdItem);
+        // Se algum item atual ainda não existe na lista de itens externa, adicionou no carrinho, diminui o estoque
+        for (Item itemExterno : itens) {
+            if(!this.itens.contains(itemExterno)) {
+                // Aumenta o estoque
+                itemExterno.getProduto().diminuiQtdEstoque(itemExterno.getQtd());
+            }
         }
+        // Se algum item externo já não exite na lista de itens atual, removeu do carrinho, aumenta o estoque
+        for (Item itemAtual : this.itens) {
+            if(!itens.contains(itemAtual)) {
+                // Aumenta o estoque
+                itemAtual.getProduto().adicionaQtdEstoque(itemAtual.getQtd());
+            }
+        }
+        this.itens = itens; // Substituindo a lista
     }
     // Construtor
     public Pedido(Integer numero, String data, Situacao situacao, Cliente cliente) {
