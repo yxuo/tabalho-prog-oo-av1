@@ -44,7 +44,7 @@ public class Pedido {
         this.numero = numero;
     }
 
-    public List<Item> getItems() {
+    public List<Item> getItens() {
         return itens;
     }
 
@@ -60,7 +60,7 @@ public class Pedido {
 
         // Item novo adicionado na nova lista, diminui o estoque
         for (Item itemExterno : itens) {
-            if (!this.getItems().contains(itemExterno)) {
+            if (!this.getItens().contains(itemExterno)) {
                 // Diminui o estoque
                 itemExterno.getProduto().diminuiQtdEstoque(itemExterno.getQtd());
             }
@@ -74,6 +74,7 @@ public class Pedido {
             }
         }
 
+        // System.out.print(this.getNumero() + " - " + this.getSituacao());
         // Adicionou o 1o item, muda status para APROVADO
         if (this.itens.size() == 0 && itens.size() > 0) {
             this.setSituacao(Situacao.Aprovado);
@@ -86,6 +87,7 @@ public class Pedido {
         // Copia a lista de itens, ao invés de referenciar
         // ? O Java possui um garbage collector que limpa a memória automaticamente
         this.itens = new ArrayList<Item>(itens);
+        // System.out.println(" - " + this.getSituacao() + " - " + this.getItens());
     }
 
     // Construtor

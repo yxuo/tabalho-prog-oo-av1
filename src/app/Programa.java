@@ -103,7 +103,6 @@ public class Programa {
         System.out.println();
 
         // Lista de Item
-        List<Item> itens = new ArrayList<Item>();
         Integer produtoSelecionado;
         Integer qtd;
 
@@ -114,6 +113,7 @@ public class Programa {
         for (int pedido = 1; pedido <= pedidos.size(); pedido++) {
             System.out.println("Pedido " + pedido + ":");
             Situacao situacao = Situacao.Analise;
+            List<Item> itens = new ArrayList<Item>();
 
             // Adiciona dois itens para cada 1 pedido
             for (int item = 1; item <= 2; item++) {
@@ -157,14 +157,15 @@ public class Programa {
                         itens.add(new Item(qtd, produtos.get(produtoSelecionado - 1)));
 
                         // atualizar a quantidade em estoque do produto via pedido
-                        pedidos.get(pedido - 1).setItens(itens);
-                        System.out.println("Novo estoque: " + produtos.get(item - 1).getQtdEstoque());
-                        
+                        System.out.print("Estoque do produto " + (produtoSelecionado)
+                                + " atualizado: " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
+                        pedidos.get(pedido - 1).setItens(itens); // Insere/atualiza itens no pedido
+                        System.out.println(" -> " + produtos.get(item - 1).getQtdEstoque());
+
                         // Informar se o status do pedido mudou
-                        System.out.println("s" + situacao + " " + pedidos.get(pedido - 1).getSituacao() + " " + pedidos.get(pedido - 1).getNumero());
                         if (pedidos.get(pedido - 1).getSituacao() != situacao) {
-                            System.out.println("Status do pedido " + pedido
-                            + " mudou de " + situacao + " para " + pedidos.get(pedido - 1).getSituacao());
+                            System.out.println("Status do pedido " + pedido + " mudou de " + situacao + " para "
+                                    + pedidos.get(pedido - 1).getSituacao());
                             situacao = pedidos.get(pedido - 1).getSituacao();
                         }
                         System.out.println("");
