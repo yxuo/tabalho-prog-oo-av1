@@ -157,10 +157,11 @@ public class Programa {
                         itens.add(new Item(qtd, produtos.get(produtoSelecionado - 1)));
 
                         // atualizar a quantidade em estoque do produto via pedido
-                        System.out.print("Estoque do produto " + (produtoSelecionado)
-                                + " atualizado: " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
+                        System.out.print("Estoque do produto " + produtoSelecionado + " '"
+                                + produtos.get(produtoSelecionado - 1).getNome()
+                        + "' atualizado: " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
                         pedidos.get(pedido - 1).setItens(itens); // Insere/atualiza itens no pedido
-                        System.out.println(" -> " + produtos.get(item - 1).getQtdEstoque());
+                        System.out.println(" -> " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
 
                         // Informar se o status do pedido mudou
                         if (pedidos.get(pedido - 1).getSituacao() != situacao) {
