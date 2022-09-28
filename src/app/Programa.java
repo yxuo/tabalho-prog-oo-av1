@@ -36,7 +36,7 @@ public class Programa {
             // clientes.add(new Cliente(cpf, nome, endereco));
             // Print do cliente
             // System.out.println(clientes.get(i-1));
-            clientes.add(new Cliente(123, "nome" + i, "endereco" + 1));
+            clientes.add(new Cliente(123, "nome" + i, "endereco" + i));
         }
 
         // Print bonitinho do cliente
@@ -113,6 +113,7 @@ public class Programa {
         // Para cada pedido
         for (int pedido = 1; pedido <= pedidos.size(); pedido++) {
             System.out.println("Pedido " + pedido + ":");
+            Situacao situacao = Situacao.Analise;
 
             // Adiciona dois itens para cada 1 pedido
             for (int item = 1; item <= 2; item++) {
@@ -134,18 +135,19 @@ public class Programa {
                     if (produtoSelecionado < 1 || produtoSelecionado > produtos.size()) {
                         System.out.println("Produto inválido!");
                     } else
-                    break;
+                        break;
                 }
-                
+
                 // Quantidade
                 while (true) {
-                    System.out.print("Digite a quantidade do Item:");
+                    System.out.println("Digite a quantidade do Item (" + produtos.get(produtoSelecionado - 1) + ")");
+                    System.out.print("Quantidade escolhida: ");
                     qtd = sc.nextInt();
                     sc.nextLine();
 
                     // Erros
                     // ? Obtém o produto do índice `produtoSelecionado` da lista de produtos
-                    if (qtd < 1 || qtd > produtos.get(item - 1).getQtdEstoque()) {
+                    if (qtd < 1 || qtd > produtos.get(produtoSelecionado - 1).getQtdEstoque()) {
                         System.out.println("Quantidade inválida!");
                     }
 
@@ -157,6 +159,14 @@ public class Programa {
                         // atualizar a quantidade em estoque do produto via pedido
                         pedidos.get(pedido - 1).setItens(itens);
                         System.out.println("Novo estoque: " + produtos.get(item - 1).getQtdEstoque());
+                        
+                        // Informar se o status do pedido mudou
+                        System.out.println("s" + situacao + " " + pedidos.get(pedido - 1).getSituacao() + " " + pedidos.get(pedido - 1).getNumero());
+                        if (pedidos.get(pedido - 1).getSituacao() != situacao) {
+                            System.out.println("Status do pedido " + pedido
+                            + " mudou de " + situacao + " para " + pedidos.get(pedido - 1).getSituacao());
+                            situacao = pedidos.get(pedido - 1).getSituacao();
+                        }
                         System.out.println("");
                         break;
                     }

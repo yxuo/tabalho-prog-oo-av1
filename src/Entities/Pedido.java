@@ -11,7 +11,6 @@ public class Pedido {
     public float valor;
     public Cliente cliente;
     private List<Item> itens;
-    
 
     public String getData() {
         return data;
@@ -44,9 +43,11 @@ public class Pedido {
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
+
     public List<Item> getItems() {
         return itens;
     }
+
     public void setItens(List<Item> itens) {
         // Atualizar o valor do pedido
         float valor = 0;
@@ -54,39 +55,46 @@ public class Pedido {
             valor += i.getProduto().getPreco() * i.getQtd();
         }
         this.valor = valor;
-        
+
         // Atualizar estoque
-        // Se algum item atual ainda não existe na lista de itens externa, adicionou no carrinho, diminui o estoque
+
+        // Item novo adicionado na nova lista, diminui o estoque
         for (Item itemExterno : itens) {
-            if(!this.itens.contains(itemExterno)) {
-                // Aumenta o estoque
+            if (!this.getItems().contains(itemExterno)) {
+                // Diminui o estoque
                 itemExterno.getProduto().diminuiQtdEstoque(itemExterno.getQtd());
             }
         }
-        // Se algum item externo já não exite na lista de itens atual, removeu do carrinho, aumenta o estoque
+
+        // Item atual não existe mais na nova lista, aumenta o estoque
         for (Item itemAtual : this.itens) {
-            if(!itens.contains(itemAtual)) {
-                // Aumenta o estoque
+            // Aumenta o estoque
+            if (!itens.contains(itemAtual)) {
                 itemAtual.getProduto().adicionaQtdEstoque(itemAtual.getQtd());
             }
         }
+
         // Adicionou o 1o item, muda status para APROVADO
-        if(this.itens.size() == 0 && itens.size() > 0) {
+        if (this.itens.size() == 0 && itens.size() > 0) {
             this.setSituacao(Situacao.Aprovado);
         }
         // Adicionou o 2o item, muda status para ANALISE
-        if(this.itens.size() == 1 && itens.size() > 1) {
+        if (this.itens.size() == 1 && itens.size() > 1) {
             this.setSituacao(Situacao.Atendido);
         }
-        this.itens = itens; // Substituindo a lista
+
+        // Copia a lista de itens, ao invés de referenciar
+        // ? O Java possui um garbage collector que limpa a memória automaticamente
+        this.itens = new ArrayList<Item>(itens);
     }
+
     // Construtor
     public Pedido(Integer numero, String data, Situacao situacao, Cliente cliente) {
         this.numero = numero;
         this.data = data;
         this.situacao = situacao;
         this.valor = 0;
-        this.cliente=cliente;
+        this.cliente = cliente;
         this.itens = new ArrayList<Item>();
     }
 
@@ -96,7 +104,8 @@ public class Pedido {
 
     // Método toString
     public String toString() {
-        return "data=" + data + ", numero=" + numero + ", situacao=" + situacao + ", valor=" + valor + ", cliente={" + cliente+"}";
+        return "data=" + data + ", numero=" + numero + ", situacao=" + situacao + ", valor=" + valor + ", cliente={"
+                + cliente + "}";
     }
 
     // toString todos os itens do pedido

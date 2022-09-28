@@ -45,9 +45,7 @@ public class Produto {
     }
 
     public void diminuiQtdEstoque(Integer qtdestoque) {
-        System.out.print("Diminui estoque " + this.qtdestoque);
         this.qtdestoque -= qtdestoque;
-        System.out.println(" -> " + this.qtdestoque);
     }
 
     // Construtor
