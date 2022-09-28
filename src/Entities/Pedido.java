@@ -48,7 +48,6 @@ public class Pedido {
         return itens;
     }
     public void setItens(List<Item> itens) {
-        System.out.println("Set itens");
         // Atualizar o valor do pedido
         float valor = 0;
         for (Item i : itens) {
@@ -56,9 +55,6 @@ public class Pedido {
         }
         this.valor = valor;
         
-        System.out.println("Set itens 2");
-        
-        System.out.println("Set itens 3");
         // Atualizar estoque
         // Se algum item atual ainda não existe na lista de itens externa, adicionou no carrinho, diminui o estoque
         for (Item itemExterno : itens) {
@@ -73,6 +69,14 @@ public class Pedido {
                 // Aumenta o estoque
                 itemAtual.getProduto().adicionaQtdEstoque(itemAtual.getQtd());
             }
+        }
+        // Adicionou o 1o item, muda status para APROVADO
+        if(this.itens.size() == 0 && itens.size() > 0) {
+            this.setSituacao(Situacao.Aprovado);
+        }
+        // Adicionou o 2o item, muda status para ANALISE
+        if(this.itens.size() == 1 && itens.size() > 1) {
+            this.setSituacao(Situacao.Atendido);
         }
         this.itens = itens; // Substituindo a lista
     }

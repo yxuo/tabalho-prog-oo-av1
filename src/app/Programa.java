@@ -161,9 +161,6 @@ public class Programa {
                         break;
                     }
                 }
-
-                // Print do Item
-                // System.out.println("Item " + i + ": " + itens.get(i-1));
             }
 
             // Adiciona os itens ao pedido
