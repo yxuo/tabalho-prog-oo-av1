@@ -29,7 +29,7 @@ em cada Classe;
   - [x] c. Implemente dois objetos da classe Pedido, com dados inseridos pelo teclado, associados a cada cliente criado anteriormente, com a situação de ANALISE. Imprima esses objetos no console; 
 
   - [ ] d. Implemente dois objetos da classe Item para cada objeto Pedido, criado anteriormente (atenção para alterar o valor do pedido). Quando o primeiro item for associado ao pedido, a situação do pedido deverá ser alterada de ANALISE para APROVADO. Quando o segundo item for associado ao pedido, a situação do pedido deverá ser alterada de APROVADO para ATENDIDO, pois não será mais associado item ao pedido. Todo item associado ao pedido deverá ser adicionado à lista de itens do pedido, o qual foi criado inicialmente vazio. Através do laço for mostre esses objetos adicionados à lista.
-      - [ ] 2 itens para cada 1 pedido  
-      - [ ] Botar 1o item, muda status de ANALISE para APROVADO  
-      - [ ] Botar 2o item, muda status de APROVADO para ATENDIDO
-      - [ ] Para cada item adicionado, atualiza a lista de itens  
+      - [x] 1. 2 itens para cada 1 pedido  
+      - [ ] 2. Botar 1o item, muda status de ANALISE para APROVADO  
+      - [ ] 3. Botar 2o item, muda status de APROVADO para ATENDIDO
+      - [ ] 4. Para cada item adicionado, atualiza a lista de itens  

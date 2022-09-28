@@ -1,6 +1,6 @@
 package Entities;
 
-import java.util.*;
+// import java.util.*;
 
 public class Cliente {
     public Integer cpf;

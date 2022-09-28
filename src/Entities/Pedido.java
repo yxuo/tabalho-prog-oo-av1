@@ -10,7 +10,7 @@ public class Pedido {
     public Situacao situacao;
     public float valor;
     public Cliente cliente;
-    private List<Item> item;
+    private List<Item> itens;
     
 
     public String getData() {
@@ -45,16 +45,32 @@ public class Pedido {
         this.numero = numero;
     }
     public List<Item> getItems() {
-        return item;
+        return itens;
     }
-    public void setItems(List<Item> item) {
-        this.item = item;
+    public void setItens(List<Item> itens) {
+        System.out.println("Set itens");
         // Atualizar o valor do pedido
         float valor = 0;
-        for (Item i : item) {
+        for (Item i : itens) {
             valor += i.getProduto().getPreco() * i.getQtd();
         }
         this.valor = valor;
+        
+        System.out.println("Set itens 2");
+        // Vou guardar para comparar, pois eu vou substituir a lista
+        this.itens = itens; // Substituindo a lista
+        
+        System.out.println("Set itens 3");
+        // Atualizar estoque
+        /*
+         * Se o item é novo (adicionado), diminui o estoque
+         * Se o item é antigo (removido), aumenta o estoque
+         */
+        for (int i = 0; i < itens.size(); i++) {
+            Integer qtdItem = itens.get(i).getQtd();
+            // Integer qtdEstoque = itens.get(i).getProduto().getQtdEstoque();
+            itens.get(i).getProduto().diminuiQtdEstoque(qtdItem);
+        }
     }
     // Construtor
     public Pedido(Integer numero, String data, Situacao situacao, Cliente cliente) {
@@ -63,7 +79,7 @@ public class Pedido {
         this.situacao = situacao;
         this.valor = 0;
         this.cliente=cliente;
-        this.item = new ArrayList<Item>();
+        this.itens = new ArrayList<Item>();
     }
 
     // Construtor com sobrecarga
@@ -78,7 +94,7 @@ public class Pedido {
     // toString todos os itens do pedido
     public String toStringItens() {
         String itens = "";
-        for (Item item : item) {
+        for (Item item : this.itens) {
             itens += item.toString() + " ";
         }
         return itens;
