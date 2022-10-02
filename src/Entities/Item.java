@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 
 public class Item {
     public Integer qtd;

@@ -1,7 +1,7 @@
 package app;
 
-import Entities.*;
-import Enums.Situacao;
+import entities.*;
+import enums.Situacao;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -20,22 +20,25 @@ public class Programa {
     }
 
     public static void main(String[] args) {
+        String execMode = args.length >= 1 ? args[0] : "run";
         // 8.a Dois objetos da classe Cliente
         Scanner sc = new Scanner(System.in);
         // Lista de Cliente
         List<Cliente> clientes = new ArrayList<Cliente>();
         // Cliente cliente;
         for (int i = 1; i <= 2; i++) {
-            System.out.println("Digite o cpf " + i + ":");
-            Integer cpf = sc.nextInt();
-            sc.nextLine(); // É o mesmo que parseInt+nextLine
-            System.out.println("Digite o nome " + i + ":");
-            String nome = sc.nextLine();
-            System.out.println("Digite o endereço " + i + ":");
-            String endereco = sc.nextLine();
-            clientes.add(new Cliente(cpf, nome, endereco));
-            // [debug]
-            // clientes.add(new Cliente(123, "nome" + i, "endereco" + i));
+            if (execMode.equals("debug")) {
+                clientes.add(new Cliente(123, "nome" + i, "endereco" + i));
+            } else {
+                System.out.println("Digite o cpf " + i + ":");
+                Integer cpf = sc.nextInt();
+                sc.nextLine(); // É o mesmo que parseInt+nextLine
+                System.out.println("Digite o nome " + i + ":");
+                String nome = sc.nextLine();
+                System.out.println("Digite o endereço " + i + ":");
+                String endereco = sc.nextLine();
+                clientes.add(new Cliente(cpf, nome, endereco));
+            }
         }
         // Print bonitinho do cliente
         System.out.println("Clientes cadastrados:");
@@ -44,16 +47,10 @@ public class Programa {
         }
         System.out.println();
 
-
         // 8.c Dois objetos da classe Pedido
         // Lista de Pedido
         List<Pedido> pedidos = new ArrayList<Pedido>();
         for (int i = 1; i <= 2; i++) {
-            System.out.println("Pedido " + i + ":");
-            System.out.println("Digite o número do pedido:");
-            Integer numero = sc.nextInt();
-            sc.nextLine(); // É o mesmo que parseInt+nextLine
-
             // Data now para String formatado
             Date now = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -62,11 +59,17 @@ public class Programa {
             // Situação
             Situacao situacao = Situacao.Analise;
 
-            // Pedido
-            pedidos.add(new Pedido(numero, data, situacao, clientes.get(i-1)));
+            if (execMode.equals("debug")) {
+                pedidos.add(new Pedido(i, data, situacao, clientes.get(i - 1)));
+            } else {
+                System.out.println("Pedido " + i + ":");
+                System.out.println("Digite o número do pedido:");
+                Integer numero = sc.nextInt();
+                sc.nextLine(); // É o mesmo que parseInt+nextLine
 
-            // Debug
-            // pedidos.add(new Pedido(i, data, situacao, clientes.get(i - 1)));
+                // Pedido
+                pedidos.add(new Pedido(numero, data, situacao, clientes.get(i - 1)));
+            }
         }
         // Print bonitinho do pedido
         System.out.println("Pedido cadastrados:");
@@ -75,32 +78,31 @@ public class Programa {
         }
         System.out.println();
 
-
         // 8.b Dois objetos da classe Produto
         List<Produto> produtos = new ArrayList<Produto>();
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Produto " + i + ":");
-            System.out.println("Digite o código do produto:");
-            Integer codigo = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Digite o nome do produto: ");
-            String nome = sc.nextLine();
-            System.out.println("Digite o preço do produto: ");
-            Float preco = sc.nextFloat();
-            System.out.println("Digite a quantidade em estoque do produto: ");
-            Integer qtdestoque = sc.nextInt();
-            sc.nextLine();
+            if (execMode.equals("debug")) {
+                produtos.add(new Produto(i, "nome" + i, i, 10));
+            } else {
+                System.out.println("Produto " + i + ":");
+                System.out.println("Digite o código do produto:");
+                Integer codigo = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Digite o nome do produto: ");
+                String nome = sc.nextLine();
+                System.out.println("Digite o preço do produto: ");
+                Float preco = sc.nextFloat();
+                System.out.println("Digite a quantidade em estoque do produto: ");
+                Integer qtdestoque = sc.nextInt();
+                sc.nextLine();
 
-            // Produto
-            produtos.add(new Produto(codigo, nome, preco, qtdestoque));
-
-            // Debug
-            // produtos.add(new Produto(i, "nome" + i, i, 10));
+                // Produto
+                produtos.add(new Produto(codigo, nome, preco, qtdestoque));
+            }
         }
         // Print bonitinho do produto
         printProdutos(produtos);
         System.out.println();
-
 
         // 8.d Dois objetos da classe item (por pedido)
         Integer produtoSelecionado;
@@ -155,7 +157,7 @@ public class Programa {
                         // atualizar a quantidade em estoque do produto via pedido
                         System.out.print("Estoque do produto " + produtoSelecionado + " '"
                                 + produtos.get(produtoSelecionado - 1).getNome()
-                        + "' atualizado: " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
+                                + "' atualizado: " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
                         pedidos.get(pedido - 1).setItens(itens); // Insere/atualiza itens no pedido
                         System.out.println(" -> " + produtos.get(produtoSelecionado - 1).getQtdEstoque());
 

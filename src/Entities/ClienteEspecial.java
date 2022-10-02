@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 // import entities.Cliente;
 
 public class ClienteEspecial extends Cliente {

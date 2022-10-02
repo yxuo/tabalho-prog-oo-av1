@@ -1,8 +1,8 @@
-package Entities;
+package entities;
 
 import java.util.*;
 
-import Enums.Situacao;
+import enums.Situacao;
 
 public class Pedido {
     public Integer numero;
