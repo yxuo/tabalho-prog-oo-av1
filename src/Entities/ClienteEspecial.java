@@ -14,6 +14,7 @@ public class ClienteEspecial extends Cliente {
 
     // Construtor
     public ClienteEspecial(Integer cpf, String endereco, String nome, String area) {
+        super();
         this.cpf = cpf;
         this.nome = nome;
         this.endereco = endereco;
@@ -22,6 +23,11 @@ public class ClienteEspecial extends Cliente {
 
     // Construtor com sobrecarga
     public ClienteEspecial() {
+        super();
+        this.cpf = 0;
+        this.nome = "João";
+        this.endereco = "Rua V, número 300";
+        this.area = "VIP";
     }
 
     // Método toString

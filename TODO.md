@@ -20,11 +20,11 @@ em cada Classe;
 
 - [x] 7. Implemente a classe ClienteEspecial, filha da classe Cliente, com atributo area; 
 
-- [ ] 8. Implemente a classe Programa, tal que:
+- [x] 8. Implemente a classe Programa, tal que:
 
   - [x] a. Implemente dois objetos da classe Cliente, com dados inseridos pelo teclado (usar objeto da classe Scanner). Imprima esses objetos no console; 
 
-  - [x] b. Implemente três objetos da classe Produto, com dados inseridos pelo teclado e imprima esses objetos no console; 
+  - [x] b. Implemente dois objetos da classe Produto, com dados inseridos pelo teclado e imprima esses objetos no console; 
   
   - [x] c. Implemente dois objetos da classe Pedido, com dados inseridos pelo teclado, associados a cada cliente criado anteriormente, com a situação de ANALISE. Imprima esses objetos no console; 
 

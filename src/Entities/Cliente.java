@@ -31,12 +31,7 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    // public List<Pedido> getPedido() {
-    //     return pedido;
-    // }
-    // public void setPedido(List<Pedido> pedido) {
-    //     this.pedido = pedido;
-    // }
+
     // Construtor
     public Cliente(Integer cpf, String nome, String endereco) {
         this.cpf = cpf;
