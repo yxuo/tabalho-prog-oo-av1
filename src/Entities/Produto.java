@@ -62,6 +62,6 @@ public class Produto {
 
     // Método toString
     public String toString() {
-        return "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", estoque=" + qtdestoque;
+        return "codigo=" + codigo + ", nome=" + nome + ", preco= R$ " + preco + ", estoque=" + qtdestoque;
     }
 }
