@@ -43,7 +43,7 @@ public class Programa {
         // Print bonitinho do cliente
         System.out.println("Clientes cadastrados:");
         for (int i = 1; i <= clientes.size(); i++) {
-            System.out.println("Cliente " + i + " " + clientes.get(i - 1));
+            System.out.println(i+"° "+"Cliente " + " " + clientes.get(i - 1));
         }
         System.out.println();
 
@@ -74,7 +74,7 @@ public class Programa {
         // Print bonitinho do pedido
         System.out.println("Pedido cadastrados:");
         for (int i = 1; i <= pedidos.size(); i++) {
-            System.out.println("Pedido " + i + " " + pedidos.get(i - 1));
+            System.out.println("Pedido #" + i + " " + pedidos.get(i - 1));
         }
         System.out.println();
 
