@@ -28,22 +28,38 @@ public class Programa {
         // Cliente cliente;
         for (int i = 1; i <= 2; i++) {
             if (execMode.equals("debug")) {
+
                 clientes.add(new Cliente(123, "nome" + i, "endereco" + i));
+
             } else {
-                System.out.println("Digite o cpf " + i + ":");
+                System.out.println("Digite [N] para cliente normal ou [E] para cliente especial:");
+                String tipo = sc.nextLine();
+                // Print cpf ou cnpj, o resto é igual
+                if (tipo.equals("N".toLowerCase()))
+                    System.out.println("Digite o cpf " + i + ":");
+                else
+                    System.out.println("Digite o cnpj " + i + ":");
+
                 Integer cpf = sc.nextInt();
                 sc.nextLine(); // É o mesmo que parseInt+nextLine
                 System.out.println("Digite o nome " + i + ":");
                 String nome = sc.nextLine();
                 System.out.println("Digite o endereço " + i + ":");
                 String endereco = sc.nextLine();
-                clientes.add(new Cliente(cpf, nome, endereco));
+                if (tipo.equals("E".toLowerCase())) {
+                    System.out.println("Digite a area " + i + ":");
+                    String area = sc.nextLine();
+                    clientes.add(new ClienteEspecial(cpf, nome, endereco, area));
+                } else {
+                    clientes.add(new Cliente(cpf, nome, endereco));
+                }
+
             }
         }
         // Print bonitinho do cliente
         System.out.println("Clientes cadastrados:");
         for (int i = 1; i <= clientes.size(); i++) {
-            System.out.println(i+"° "+"Cliente " + " " + clientes.get(i - 1));
+            System.out.println(i + "° " + "Cliente " + " " + clientes.get(i - 1));
         }
         System.out.println();
 
