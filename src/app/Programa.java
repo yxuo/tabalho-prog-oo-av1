@@ -26,98 +26,100 @@ public class Programa {
         // Lista de Cliente
         List<Cliente> clientes = new ArrayList<Cliente>();
         // Cliente cliente;
+        if (execMode.equals("debug")) {
+            clientes.add(new Cliente(123, "nome" + 1, "endereco" + 1));
+            clientes.add(new ClienteEspecial(123, "nome" + 2, "endereco" + 2, "area2"));
+        }
         for (int i = 1; i <= 2; i++) {
-            if (execMode.equals("debug")) {
+            if (!execMode.equals("debug")) {
+            System.out.println("Digite [N] para cliente normal ou [E] para cliente especial:");
+            String tipo = sc.nextLine();
+            // Print cpf ou cnpj, o resto é igual
+            if (tipo.equals("N".toLowerCase()))
+                System.out.println("Digite o cpf " + i + ":");
+            else
+                System.out.println("Digite o cnpj " + i + ":");
 
-                clientes.add(new Cliente(123, "nome" + i, "endereco" + i));
-
+            Integer cpf = sc.nextInt();
+            sc.nextLine(); // É o mesmo que parseInt+nextLine
+            System.out.println("Digite o nome " + i + ":");
+            String nome = sc.nextLine();
+            System.out.println("Digite o endereço " + i + ":");
+            String endereco = sc.nextLine();
+            if (tipo.equals("E".toLowerCase())) {
+                System.out.println("Digite a area " + i + ":");
+                String area = sc.nextLine();
+                clientes.add(new ClienteEspecial(cpf, nome, endereco, area));
             } else {
-                System.out.println("Digite [N] para cliente normal ou [E] para cliente especial:");
-                String tipo = sc.nextLine();
-                // Print cpf ou cnpj, o resto é igual
-                if (tipo.equals("N".toLowerCase()))
-                    System.out.println("Digite o cpf " + i + ":");
-                else
-                    System.out.println("Digite o cnpj " + i + ":");
-
-                Integer cpf = sc.nextInt();
-                sc.nextLine(); // É o mesmo que parseInt+nextLine
-                System.out.println("Digite o nome " + i + ":");
-                String nome = sc.nextLine();
-                System.out.println("Digite o endereço " + i + ":");
-                String endereco = sc.nextLine();
-                if (tipo.equals("E".toLowerCase())) {
-                    System.out.println("Digite a area " + i + ":");
-                    String area = sc.nextLine();
-                    clientes.add(new ClienteEspecial(cpf, nome, endereco, area));
-                } else {
-                    clientes.add(new Cliente(cpf, nome, endereco));
-                }
-
+                clientes.add(new Cliente(cpf, nome, endereco));
             }
+
         }
-        // Print bonitinho do cliente
-        System.out.println("Clientes cadastrados:");
-        for (int i = 1; i <= clientes.size(); i++) {
-            System.out.println(i + "° " + "Cliente " + " " + clientes.get(i - 1));
+    }
+    // Print bonitinho do cliente
+    System.out.println("Clientes cadastrados:");for(int i = 1;i<=clientes.size();i++)
+    {
+        System.out.println(i + "° " + "Cliente " + " " + clientes.get(i - 1));
+    }System.out.println();
+
+    // 8.c Dois objetos da classe Pedido
+    // Lista de Pedido
+    List<Pedido> pedidos = new ArrayList<Pedido>();for(
+    int i = 1;i<=2;i++)
+    {
+        // Data now para String formatado
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String data = formatter.format(now);
+
+        // Situação
+        Situacao situacao = Situacao.Analise;
+
+        if (execMode.equals("debug")) {
+            pedidos.add(new Pedido(i, data, situacao, clientes.get(i - 1)));
+        } else {
+            System.out.println("Pedido " + i + ":");
+            System.out.println("Digite o número do pedido:");
+            Integer numero = sc.nextInt();
+            sc.nextLine(); // É o mesmo que parseInt+nextLine
+
+            // Pedido
+            pedidos.add(new Pedido(numero, data, situacao, clientes.get(i - 1)));
         }
-        System.out.println();
+    }
+    // Print bonitinho do pedido
+    System.out.println("Pedido cadastrados:");for(
+    int i = 1;i<=pedidos.size();i++)
+    {
+        System.out.println("Pedido #" + i + " " + pedidos.get(i - 1));
+    }System.out.println();
 
-        // 8.c Dois objetos da classe Pedido
-        // Lista de Pedido
-        List<Pedido> pedidos = new ArrayList<Pedido>();
-        for (int i = 1; i <= 2; i++) {
-            // Data now para String formatado
-            Date now = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            String data = formatter.format(now);
+    // 8.b Dois objetos da classe Produto
+    List<Produto> produtos = new ArrayList<Produto>();for(
+    int i = 1;i<=5;i++)
+    {
+        if (execMode.equals("debug")) {
+            produtos.add(new Produto(i, "nome" + i, i, 10));
+        } else {
+            System.out.println("Produto " + i + ":");
+            System.out.println("Digite o código do produto:");
+            Integer codigo = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Digite o nome do produto: ");
+            String nome = sc.nextLine();
+            System.out.println("Digite o preço do produto: ");
+            Float preco = sc.nextFloat();
+            System.out.println("Digite a quantidade em estoque do produto: ");
+            Integer qtdestoque = sc.nextInt();
+            sc.nextLine();
 
-            // Situação
-            Situacao situacao = Situacao.Analise;
-
-            if (execMode.equals("debug")) {
-                pedidos.add(new Pedido(i, data, situacao, clientes.get(i - 1)));
-            } else {
-                System.out.println("Pedido " + i + ":");
-                System.out.println("Digite o número do pedido:");
-                Integer numero = sc.nextInt();
-                sc.nextLine(); // É o mesmo que parseInt+nextLine
-
-                // Pedido
-                pedidos.add(new Pedido(numero, data, situacao, clientes.get(i - 1)));
-            }
+            // Produto
+            produtos.add(new Produto(codigo, nome, preco, qtdestoque));
         }
-        // Print bonitinho do pedido
-        System.out.println("Pedido cadastrados:");
-        for (int i = 1; i <= pedidos.size(); i++) {
-            System.out.println("Pedido #" + i + " " + pedidos.get(i - 1));
-        }
-        System.out.println();
+    }
 
-        // 8.b Dois objetos da classe Produto
-        List<Produto> produtos = new ArrayList<Produto>();
-        for (int i = 1; i <= 5; i++) {
-            if (execMode.equals("debug")) {
-                produtos.add(new Produto(i, "nome" + i, i, 10));
-            } else {
-                System.out.println("Produto " + i + ":");
-                System.out.println("Digite o código do produto:");
-                Integer codigo = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Digite o nome do produto: ");
-                String nome = sc.nextLine();
-                System.out.println("Digite o preço do produto: ");
-                Float preco = sc.nextFloat();
-                System.out.println("Digite a quantidade em estoque do produto: ");
-                Integer qtdestoque = sc.nextInt();
-                sc.nextLine();
-
-                // Produto
-                produtos.add(new Produto(codigo, nome, preco, qtdestoque));
-            }
-        }
-        // Print bonitinho do produto
-        printProdutos(produtos);
+    // Print bonitinho do produto
+    printProdutos(produtos);
         System.out.println();
 
         // 8.d Dois objetos da classe item (por pedido)
