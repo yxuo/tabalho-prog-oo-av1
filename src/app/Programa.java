@@ -1,12 +1,12 @@
 package app;
 
-import entities.*;
-import enums.Situacao;
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import java.util.Scanner;
+
+import Entities.*;
+import Enums.Situacao;
 
 public class Programa {
 

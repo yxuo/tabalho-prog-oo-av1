@@ -1,15 +1,15 @@
-package entities;
+package Entities;
 
 import java.util.*;
 
-import enums.Situacao;
+import Enums.Situacao;
 
 public class Pedido {
-    public Integer numero;
-    public String data;
-    public Situacao situacao;
-    public float valor;
-    public Cliente cliente;
+    private Integer numero;
+    private String data;
+    private Situacao situacao;
+    private float valor;
+    private Cliente cliente;
     private List<Item> itens;
 
     public String getData() {
